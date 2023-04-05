@@ -23,5 +23,5 @@ app.use(cors({
 
 
 app.listen(process.env.PORT, ()=>{
-    console.log(`server is listening in ${process.env.MODE}`)
+    console.log(`server is listening `)
 })
