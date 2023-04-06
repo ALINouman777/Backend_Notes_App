@@ -10,7 +10,7 @@ import cors from "cors"
 const app= express();
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://myapp.com'],
+    origin: ['http://localhost:4000', 'https://notes-app-7g2s.onrender.com'],
     methods: 'GET,POST,PUT,DELETE',
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
