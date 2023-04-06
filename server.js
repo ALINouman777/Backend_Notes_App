@@ -7,9 +7,9 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 
 
-connectDb();
-dotenv.config();
 const app= express();
+dotenv.config();
+connectDb();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
