@@ -8,13 +8,13 @@ import cors from "cors"
 
 
 const app= express();
+dotenv.config();
+connectDb();
 app.use(cors({
-    origin:[process.env.FRONT_URL],
+    origin:['https://notes-app-7g2s.onrender.com'],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }))
-dotenv.config();
-connectDb();
 
 app.use(cookieParser())
 app.use(express.json())
