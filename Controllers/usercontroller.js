@@ -102,11 +102,9 @@ export const Logout=(req,res)=>{
 }
 
 export const allProfile=async(req, res)=>{
-    // const users=await User.find({});
-    // console.log(users)
-    // res.status(200).json({
-    //     success:true,
-    //     users
-    // })
-    res.send("ali nouman")
+    const users=await User.find({});
+    res.status(200).json({
+        success:true,
+        users
+    })
 }
