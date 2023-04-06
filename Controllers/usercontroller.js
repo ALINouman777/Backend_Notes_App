@@ -68,8 +68,8 @@ export const Signup = async (req, res) => {
         return res.status(201).cookie("token", token, {
             maxAge: 30 * 60 * 1000,
             httponly: true,
-            secure:true,
-            sameSite: 'none',
+            secure:process.env.MODE ==="development"?false:true,
+            sameSite: process.env.MODE ==="development"?"lax":'none',
             domain:"https://notes-app-7g2s.onrender.com/user/signup"
         }).json({
             success: true,

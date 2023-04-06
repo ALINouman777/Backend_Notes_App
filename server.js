@@ -25,5 +25,5 @@ app.use("/task",Taskroute );
 
 
 app.listen(process.env.PORT, ()=>{
-    console.log(`server is listening `)
+    console.log(`server is listening in ${process.env.MODE} `)
 })
