@@ -13,9 +13,9 @@ const app= express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(function(req, res, next) {
-    // Set the Access-Control-Allow-Origin header to allow requests from all origins
-    res.header('Access-Control-Allow-Origin', 'https://notes-app-7g2s.onrender.com');
-    // Set the Access-Control-Allow-Headers header to allow the Content-Type header
+    
+    
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
   });
