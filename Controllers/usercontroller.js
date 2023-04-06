@@ -66,10 +66,11 @@ export const Signup = async (req, res) => {
         const token = Jwt.sign({ _id: formfiller._id }, "alinoumanisagoodboy");
 
         return res.status(201).cookie("token", token, {
-            httponly: true,
             maxAge: 30 * 60 * 1000,
-            sameSite:"none",
+            httponly: true,
             secure:true,
+            sameSite: 'none',
+            domain:"https://notes-app-7g2s.onrender.com/user/signup"
         }).json({
             success: true,
             formfiller
