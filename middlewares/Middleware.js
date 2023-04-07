@@ -5,7 +5,7 @@ export const isAuth = async (req, res, next) => {
     const { token } = req.cookies;
   try {
     if (!token) {
-        return res.status(404).json({
+        return res.status(200).json({
             success: false,
             message: "Login First"
         })
