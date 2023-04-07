@@ -13,12 +13,10 @@ export const addTask = async (req, res) => {
         const task = await Task.create({
             user: req.user._id, title, description
         })
-        return  res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: "successfully added task",
         })
-
-
     } catch (error) {
         return res.status(500).json({
             success: false,

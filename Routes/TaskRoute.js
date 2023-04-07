@@ -5,7 +5,7 @@ import { isAuth } from "../middlewares/Middleware.js";
 
 const route= express.Router();
 
-route.post("/add",isAuth,addTask);
+route.post("/add",addTask);
 route.get("/my",isAuth,fetchmyNotes)
 route.delete("/:id" , isAuth, deleteNote)
 route.put("/update/:id",isAuth,updateNote)
