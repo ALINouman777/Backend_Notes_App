@@ -20,7 +20,7 @@ export const addTask = async (req, res) => {
         })
         return res.status(200).json({
             success: true,
-            message: task
+            message: "Note Added Successfully"
         })
     } catch (error) {
         return res.status(500).json({
