@@ -95,8 +95,9 @@ export const Myprofile = async (req, res) => {
 export const Logout=(req,res)=>{
     res.status(200).cookie("token", "",{
         expires:new Date(Date.now()),
-        sameSite:"none",
-        secure:true,
+        secure:process.env.MODE ==="development"?false:true,
+        sameSite: process.env.MODE ==="development"?"lax":'none',
+        domain:"https://notes-app-7g2s.onrender.com/user/signup"
     }).json({
         success: true
     })
