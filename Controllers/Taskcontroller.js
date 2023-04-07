@@ -12,15 +12,15 @@ export const addTask = async (req, res) => {
 
         }
 
-       console.log (req.user)
 
         const task = await Task.create({
             title:title,
-            description:description
+            description:description,
+            user:req.user._id
         })
         return res.status(200).json({
             success: true,
-            message: task,
+            message: task
         })
     } catch (error) {
         return res.status(500).json({
