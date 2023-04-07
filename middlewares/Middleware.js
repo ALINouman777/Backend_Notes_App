@@ -3,6 +3,7 @@ import {User} from "../Database/model/User.js";
 
 export const isAuth = async (req, res, next) => {
     const { token } = req.cookies;
+  try {
     if (!token) {
         return res.status(404).json({
             success: false,
@@ -15,4 +16,8 @@ export const isAuth = async (req, res, next) => {
     let user = await User.findOne({ _id })
     req.user = user;
     next();
+    
+  } catch (error) {
+    res.status(401).send('Unauthorized');
+  }
 }

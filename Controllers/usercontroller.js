@@ -86,21 +86,34 @@ export const Signup = async (req, res) => {
 
 
 export const Myprofile = async (req, res) => {
-    res.status(200).json({
-        success:true,
-        user:req.user
-    })
-}
+    const {_id}=req.user
 
-export const Logout=(req,res)=>{
-    res.status(200).cookie("token", "",{
-        expires:new Date(Date.now()),
+    const a= await User.findById({_id})
+    const token = Jwt.sign({ _id: req.user._id }, "alinoumanisagoodboy");
+
+    res.status(200).cookie("token", token, {
+        maxAge: 30 * 60 * 1000,
+        httponly: true,
         secure:process.env.MODE ==="development"?false:true,
         sameSite: process.env.MODE ==="development"?"lax":'none',
         domain:"https://notes-app-7g2s.onrender.com/user/signup"
     }).json({
-        success: true
+        success:true,
+        user:a
+        })
+}
+
+export const Logout=(req,res)=>{
+
+    res.status(200).cookie("token", "",{
+        expires:new Date(Date.now()),
+        secure:process.env.MODE ==="development"?false:true,
+        sameSite: process.env.MODE ==="development"?"lax":'none',
+    }).json({
+        success: true,
+        message:"Logged out successfully"
     })
+
 }
 
 export const allProfile=async(req, res)=>{
