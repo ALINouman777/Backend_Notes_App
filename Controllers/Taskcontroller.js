@@ -4,18 +4,23 @@ export const addTask = async (req, res) => {
     try {
         const { title, description } = req.body
         if (!title || !description) {
+
             return res.status(404).json({
                 success: false,
                 message: "title or description must not be empty"
             })
+
         }
 
+       console.log (req.user)
+
         const task = await Task.create({
-            user: req.user._id, title, description
+            title:title,
+            description:description
         })
         return res.status(200).json({
             success: true,
-            message: "successfully added task",
+            message: task,
         })
     } catch (error) {
         return res.status(500).json({
