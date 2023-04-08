@@ -70,7 +70,6 @@ export const Signup = async (req, res) => {
             httponly: true,
             secure:process.env.MODE ==="development"?false:true,
             sameSite: process.env.MODE ==="development"?"lax":'none',
-            domain:"https://notes-app-7g2s.onrender.com/user/signup"
         }).json({
             success: true,
             formfiller
@@ -96,7 +95,7 @@ export const Myprofile = async (req, res) => {
         httponly: true,
         secure:process.env.MODE ==="development"?false:true,
         sameSite: process.env.MODE ==="development"?"lax":'none',
-        domain:"https://notes-app-7g2s.onrender.com/user/signup"
+
     }).json({
         success:true,
         user:a
